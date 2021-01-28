@@ -3,6 +3,7 @@ const wbepack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const HtmlWebpackInlineSourcePlugin = require('html-webpack-inline-source-plugin')
 const path = require('path')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = {
   entry: ['./src/entry-client.js'],
@@ -26,13 +27,10 @@ module.exports = {
       {
         test: /\.css$/,
         use: [
-          'vue-style-loader',
-          {
-            loader: 'css-loader',
-            options: { importLoaders: 1 },
-          }
+          MiniCssExtractPlugin.loader,
+          'css-loader',
         ]
-      },
+      }
       // {
       //   test: /\.(png|svg|jpg|gif)$/,
       //   loader: 'file-loader',
@@ -44,6 +42,9 @@ module.exports = {
     ]
   },
   plugins: [
+    new MiniCssExtractPlugin({
+      filename: 'style.css'
+    }),
     new VueLoaderPlugin(),
     new HtmlWebpackPlugin({
       template: 'static/index.ejs',
