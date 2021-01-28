@@ -1,0 +1,11 @@
+name = "rollupsync-website"
+type = "webpack"
+webpack_config = "./webpack.worker.js"
+account_id = ""
+workers_dev = true
+route = ""
+zone_id = ""
+
+[site]
+bucket = "build"
+entry-point = "workers-site"

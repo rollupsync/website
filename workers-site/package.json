@@ -1,0 +1,9 @@
+{
+  "private": true,
+  "name": "worker",
+  "version": "1.0.0",
+  "main": "./worker/worker.js",
+  "author": "",
+  "license": "MIT",
+  "dependencies": {}
+}

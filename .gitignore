@@ -1,0 +1,10 @@
+node_modules
+dist
+build
+*.swp
+*.tmp
+.env
+.DS_Store
+
+workers-site/worker
+wrangler.toml
