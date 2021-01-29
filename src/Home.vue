@@ -2,7 +2,7 @@
   <div>
     <Header />
     <div class="container">
-      <div style="display: flex; margin: 99px; overflow: visible;">
+      <div style="display: flex; margin: 99px; overflow: hidden;">
         <div style="min-width: 560px">
           <div class="title-text-top">
             Run a rollup
@@ -30,7 +30,52 @@
         { image: 'https://docs.fuel.sh/logo.4b97a9a3.svg' },
         { image: 'https://docs.fuel.sh/logo.4b97a9a3.svg' },
       ]" />
+      <div style="height: 60px;" spacer />
+      <div class="detail">
+        <div class="title-text-top">
+          How does it work?
+        </div>
+        <div class="title-description">
+          RollupSync whitelists contract addresses; requests about rollup addresses succeed. Requests about other addresses fail.
+        </div>
+      </div>
     </div>
+    <div class="requests-info-container">
+      <div class="requests-info-text">
+        <span style="color: #EF7A3C">500,000</span> requests in the last 24 hours.
+      </div>
+    </div>
+    <div class="container">
+      <div class="detail" style="align-self: center">
+        <div class="title-text-top" style="text-align: center">
+          What is it?
+        </div>
+        <div class="title-description" style="text-align: center">
+          RollupSync is a small server that sits between a rollup node and an Ethereum node operated by us.
+        </div>
+      </div>
+      <div class="detail">
+        <div class="title-text-top">
+          Free
+        </div>
+        <div class="title-description">
+          Unlimited reads to rollup addresses.
+          <div style="height: 24px" spacer />
+          Unlimited transactions anywhere.
+        </div>
+      </div>
+      <div class="detail" style="align-self: flex-end">
+        <div class="title-text-top">
+          Fast
+        </div>
+        <div class="title-description">
+          Cached data improves sync speed.
+          <div style="height: 24px" spacer />
+          CDN moves data closer to you.
+        </div>
+      </div>
+    </div>
+    <Footer />
   </div>
 </template>
 
@@ -38,6 +83,7 @@
 import Vue from 'vue'
 import Component from 'vue-class-component'
 import Header from './components/Header'
+import Footer from './components/Footer'
 import SnippetTabs from './components/SnippetTabs'
 import lottie from 'lottie-web'
 import RollupAnimation from '../static/rollup_1.json'
@@ -46,6 +92,7 @@ import RollupAnimation from '../static/rollup_1.json'
   name: 'Home',
   components: {
     Header,
+    Footer,
     SnippetTabs,
   },
   metaInfo: {
@@ -97,7 +144,6 @@ export default class Home extends Vue {
 .container {
   display: flex;
   flex-direction: column;
-  overflow: hidden;
   max-width: 1400px;
   margin: auto;
 }
@@ -160,5 +206,23 @@ export default class Home extends Vue {
   color: #767676;
   max-width: 700px;
   align-self: center;
+}
+.detail {
+  max-width: 530px;
+  margin: 99px;
+}
+.requests-info-container {
+  width: 100%;
+  background-color: #222222;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.requests-info-text {
+  margin: 40px;
+  font-size: 64px;
+  color: white;
+  font-weight: bold;
+  text-align: center;
 }
 </style>
