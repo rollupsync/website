@@ -1,7 +1,6 @@
-import axios from 'axios'
 import { createApp } from '.'
 
-export default (context) => new Promise(async (rs, rj) => {
+export default (context) => new Promise((rs, rj) => {
   const { app, router, store } = createApp()
   const { url } = context
   const { fullPath } = router.resolve(url).route
@@ -10,9 +9,9 @@ export default (context) => new Promise(async (rs, rj) => {
   }
 
   router.push(url)
-  router.onReady(async () => {
+  router.onReady(() => {
     try {
-      const matchedComponents = router.getMatchedComponents()
+      const matchedComponents = router.getMatchedComponents(url)
       if (!matchedComponents.length) {
         return rj({ code: 404 })
       }

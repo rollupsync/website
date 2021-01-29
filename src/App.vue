@@ -15,7 +15,12 @@ export default class App extends Vue {}
 </script>
 
 <style>
-body: {
+body {
   margin: 0px;
+  font-family: 'Inter';
+}
+@font-face {
+  font-family: 'Inter';
+  src: url('../static/Inter-Regular.ttf');
 }
 </style>

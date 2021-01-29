@@ -1,12 +1,13 @@
 const { getAssetFromKV, mapRequestToAsset } = require('@cloudflare/kv-asset-handler')
 const createApp = require('./entry-server').default
 const clientManifest = require('../build/vue-ssr-client-manifest.json')
-const { createRenderer } = require('../vendor/basic')
+// const { createRenderer } = require('../vendor/basic')
+const { createSharedBundleRenderer } = require('vue-server-renderer')
+const serverBundle = require('../build/server-bundle').default
 
-const renderer = createRenderer({
+const renderer = createSharedBundleRenderer(serverBundle, {
   clientManifest,
-  inject: true,
-  template: (content, context) => `
+  template: (content, context, r) => `
 <!DOCTYPE html>
 <html>
   <head>
@@ -28,12 +29,17 @@ const renderer = createRenderer({
 async function render(req) {
   const url = new URL(req.url)
   const context = {
-    title: 'Explorer',
+    title: 'Rollup Sync',
     url: url.pathname,
     cookie: req.headers['cookie'],
   }
-  const app = await createApp(context)
-  return renderer.renderToString(app, context)
+  return new Promise((rs, rj) => renderer.renderToString(context, (err, html) => {
+    if (err) {
+      rj(err)
+    } else {
+      rs(html)
+    }
+  }))
 }
 
 addEventListener('fetch', (event) => {
