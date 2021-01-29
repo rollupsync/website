@@ -21,11 +21,15 @@
         <!-- <img class="logo-image" :src="require('../static/ellipse.svg')" width="400px" height="auto" /> -->
       </div>
       <div class="info-title">
-        Run a rollup node
+        Free and unlimited requests
       </div>
       <div class="info-description">
-        Rollup Sync offers <span style="color: white">free</span> and <span style="color:white">unlimited</span> requests to the Ethereum network, supporting the synchronization of rollup nodes.
+        Use the snippets below to run your own rollup node. Docker and NodeJS are required to run most nodes.
       </div>
+      <SnippetTabs :tabs="[
+        { image: 'https://docs.fuel.sh/logo.4b97a9a3.svg' },
+        { image: 'https://docs.fuel.sh/logo.4b97a9a3.svg' },
+      ]" />
     </div>
   </div>
 </template>
@@ -34,6 +38,7 @@
 import Vue from 'vue'
 import Component from 'vue-class-component'
 import Header from './components/Header'
+import SnippetTabs from './components/SnippetTabs'
 import lottie from 'lottie-web'
 import RollupAnimation from '../static/rollup_1.json'
 
@@ -41,6 +46,7 @@ import RollupAnimation from '../static/rollup_1.json'
   name: 'Home',
   components: {
     Header,
+    SnippetTabs,
   },
   metaInfo: {
     title: 'RollupSync',
@@ -138,13 +144,15 @@ export default class Home extends Vue {
 }
 .info-title {
   font-style: normal;
-  font-weight: 600;
-  font-size: 24px;
+  font-weight: bold;
+  font-size: 48px;
+  line-height: 140%;
+  color: #EF7A3C;
   align-self: center;
-  color: #FFFFFF
 }
 .info-description {
   margin-top: 21px;
+  margin-bottom: 72px;
   font-weight: bold;
   font-size: 24px;
   line-height: 140%;
