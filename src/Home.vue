@@ -40,7 +40,7 @@ import Header from './components/Header'
     Header,
   },
   metaInfo: {
-    title: 'Hello World',
+    title: 'RollupSync',
   },
 })
 export default class Home extends Vue {

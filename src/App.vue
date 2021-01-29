@@ -18,6 +18,7 @@ export default class App extends Vue {}
 body {
   margin: 0px;
   font-family: 'Inter';
+  font-display: swap;
   background-color: black;
 }
 @font-face {
