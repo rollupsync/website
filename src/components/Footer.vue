@@ -31,6 +31,8 @@ export default class Footer extends Vue {
 }
 .github {
   margin: 25px;
+  width: 60px;
+  height: 60px;
   cursor: pointer;
   user-select: none;
 }
