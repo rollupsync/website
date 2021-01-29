@@ -18,6 +18,8 @@ export default class Header extends Vue {}
   height: 122px;
   display: flex;
   align-items: center;
+  margin: auto;
+  max-width: 1400px;
 }
 .header-text {
   color: #E6EFF0;

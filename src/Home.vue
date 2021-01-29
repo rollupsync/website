@@ -17,7 +17,8 @@
           </div>
         </div>
         <div style="flex: 1; max-width: 500px; min-width: 100px" />
-        <img class="logo-image" :src="require('../static/ellipse.svg')" width="400px" height="auto" />
+        <div ref="animation" class="animation" style="min-width: 300px; max-width: 330px" />
+        <!-- <img class="logo-image" :src="require('../static/ellipse.svg')" width="400px" height="auto" /> -->
       </div>
       <div class="info-title">
         Run a rollup node
@@ -33,6 +34,8 @@
 import Vue from 'vue'
 import Component from 'vue-class-component'
 import Header from './components/Header'
+import lottie from 'lottie-web'
+import RollupAnimation from '../static/rollup_1.json'
 
 @Component({
   name: 'Home',
@@ -61,6 +64,13 @@ export default class Home extends Vue {
         this.updateMessage()
       }, 6000)
     }, 4000)
+    lottie.loadAnimation({
+      container: this.$refs.animation, // the dom element
+      renderer: 'svg',
+      loop: true,
+      autoplay: true,
+      animationData: RollupAnimation, // the animation data
+    })
   }
 
   updateMessage() {
@@ -82,6 +92,12 @@ export default class Home extends Vue {
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  max-width: 1400px;
+  margin: auto;
+}
+.animation {
+  position: relative;
+  top: -40px;
 }
 .logo-image {
   position: relative;

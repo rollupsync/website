@@ -17,12 +17,13 @@
     "@cloudflare/kv-asset-handler": "^0.1.0",
     "@vue/cli-service": "^4.5.11",
     "axios": "^0.21.1",
+    "lottie-web": "^5.7.6",
+    "serialize-javascript": "git://github.com/jchancehud/serialize-javascript#random",
     "vue": "^2.6.12",
     "vue-class-component": "^7.2.5",
     "vue-meta": "^2.4.0",
     "vue-router": "^3.4.3",
-    "vuex": "^3.5.1",
-    "serialize-javascript": "git://github.com/jchancehud/serialize-javascript#random"
+    "vuex": "^3.5.1"
   },
   "devDependencies": {
     "@babel/core": "^7.11.6",
