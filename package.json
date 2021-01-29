@@ -7,7 +7,7 @@
   "scripts": {
     "start": "NODE_ENV=development node server.js",
     "build": "webpack --config webpack.prod.js --progress",
-    "build:server": "npm run build && webpack --config webpack.server.js --progress",
+    "build:server": "npm run build && webpack --config webpack.server.js --progress && node scripts/extract-bundle",
     "build:worker": "webpack --config ./webpack.worker.js",
     "dev": "wrangler dev"
   },
@@ -39,7 +39,7 @@
     "mini-css-extract-plugin": "^0.11.0",
     "url-loader": "^4.1.1",
     "vue-loader": "^15.9.3",
-    "vue-server-renderer": "^2.6.12",
+    "vue-server-renderer": "https://gitpkg.now.sh/JChanceHud/vue/packages/vue-server-renderer?same-process-render",
     "vue-style-loader": "git://github.com/JChanceHud/vue-style-loader.git#webworker-support",
     "vue-template-compiler": "^2.6.12",
     "webpack": "^4.44.0",

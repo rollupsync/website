@@ -9,6 +9,11 @@ module.exports = merge(commonConfig, {
     filename: 'server-bundle.js',
     libraryTarget: 'commonjs2',
   },
+  optimization: {
+    runtimeChunk: false,
+    splitChunks: false,
+    minimize: false,
+  },
   target: 'node',
   devtool: '#source-map',
   externals: nodeExternals({

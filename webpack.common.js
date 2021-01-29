@@ -27,24 +27,24 @@ module.exports = {
       {
         test: /\.css$/,
         use: [
-          MiniCssExtractPlugin.loader,
-          'css-loader',
+          'vue-style-loader',
+          {
+            loader: 'css-loader',
+            options: { importLoaders: 1 },
+          }
         ]
+      },
+      {
+        test: /\.(png|svg|jpg|gif|ttf)$/,
+        loader: 'file-loader',
+        options: {
+          publicPath: '/build',
+          esModule: false,
+        }
       }
-      // {
-      //   test: /\.(png|svg|jpg|gif)$/,
-      //   loader: 'file-loader',
-      //   options: {
-      //     publicPath: 'build',
-      //     esModule: false,
-      //   }
-      // }
     ]
   },
   plugins: [
-    new MiniCssExtractPlugin({
-      filename: 'style.css'
-    }),
     new VueLoaderPlugin(),
     new HtmlWebpackPlugin({
       template: 'static/index.ejs',

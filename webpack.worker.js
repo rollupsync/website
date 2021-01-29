@@ -12,6 +12,12 @@ const config = merge(common, {
     path: path.resolve(__dirname, 'workers-site/worker'),
     filename: 'worker.js',
   },
+  resolve: {
+    alias: {
+      fs: path.resolve(__dirname, 'empty.js'),
+      module: path.resolve(__dirname, 'empty.js'),
+    }
+  },
   optimization: {
     runtimeChunk: false,
     splitChunks: false,
@@ -22,7 +28,7 @@ const config = merge(common, {
   },
   plugins: [
     new webpack.DefinePlugin({
-      'process.env.VUE_ENV': JSON.stringify('server'),
+      // 'process.env.VUE_ENV': JSON.stringify('server'),
       'process.env.NODE_ENV': JSON.stringify('production'),
     }),
     new webpack.optimize.LimitChunkCountPlugin({
