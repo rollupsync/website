@@ -84,6 +84,8 @@ import Footer from './components/Footer'
 import SnippetTabs from './components/SnippetTabs'
 import lottie from 'lottie-web'
 import RollupAnimation from '../static/rollup_1.json'
+import FuelLogo from '../static/fuel-logo.svg'
+import ArbitrumLogo from '../static/arbitrum-logo.png'
 
 @Component({
   name: 'Home',
@@ -109,14 +111,14 @@ export default class Home extends Vue {
 
   codeTabs = [
     {
-      image: 'https://docs.fuel.sh/logo.4b97a9a3.svg',
-      command: 'sh -c "curl https://raw.githubusercontent.com/rollupsync/launch-scripts/main/fuel.sh"',
+      image: FuelLogo,
+      command: 'sh -c "$(curl -s https://raw.githubusercontent.com/rollupsync/launch-scripts/main/fuel.sh)"',
       link: 'https://github.com/rollupsync/launch-scripts/blob/main/fuel.sh',
     },
     {
-      image: 'https://docs.fuel.sh/logo.4b97a9a3.svg',
-      command: 'sh -c "curl https://raw.githubusercontent.com/rollupsync/launch-scripts/main/fuel.sh"',
-      link: 'https://github.com/rollupsync/launch-scripts/blob/main/fuel.sh',
+      image: ArbitrumLogo,
+      command: 'sh -c "$(curl -s https://raw.githubusercontent.com/rollupsync/launch-scripts/main/arbitrum.sh)"',
+      link: 'https://github.com/rollupsync/launch-scripts/blob/main/arbitrum.sh',
     }
   ]
 

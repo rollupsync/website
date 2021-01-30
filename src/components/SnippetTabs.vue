@@ -26,8 +26,10 @@
         Run a rollup node!
       </div>
       <div class="code-container">
-        <div>
-          <span style="user-select: none">$ </span>{{ tabs[activeIndex].command }}
+        <div style="display: flex">
+          <div style="user-select: none">$ </div>
+          <div style="width: 10px" spacer />
+          <div>{{ tabs[activeIndex].command }}</div>
         </div>
         <div class="copy-button">
           <div class="copy-button-text">
@@ -88,6 +90,7 @@ export default class SnippetTabs extends Vue {
 .tab-image-active {}
 .snippet-container {
   min-width: 700px;
+  max-width: 900px;
   background-color: rgba(227, 238, 251, 0.3);
   display: flex;
   flex-direction: column;
