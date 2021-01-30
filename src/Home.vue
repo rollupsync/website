@@ -109,7 +109,7 @@ export default class Home extends Vue {
   visibleIndex = 0
   titleMessage = this.messages[this.visibleIndex]
   timer = null
-  requestCount = 0
+  requestCount = '0'
 
   codeTabs = [
     {
@@ -149,7 +149,15 @@ export default class Home extends Vue {
 
   async updateRequestCount() {
     const { data } = await axios.get('https://mainnet.rollupsync.com/request-count')
-    this.requestCount = data.count
+    if (data.count < 1000) {
+      this.requestCount = data.count
+    } else if (data.count >= 1000 && data.count < 1000000) {
+      const count = data.count.toString()
+      this.requestCount = `${count.slice(0, -3)},${count.slice(-3)}`
+    } else if (data.count >= 1000000) {
+      const count = (data.count/1000000).toFixed(1)
+      this.requestCount = `${count.replace('.0', '')}M`
+    }
   }
 
   beforeUnmount() {
