@@ -26,10 +26,7 @@
       <div class="info-description">
         Use the snippets below to run your own rollup node. Docker and NodeJS are required to run most nodes.
       </div>
-      <SnippetTabs :tabs="[
-        { image: 'https://docs.fuel.sh/logo.4b97a9a3.svg' },
-        { image: 'https://docs.fuel.sh/logo.4b97a9a3.svg' },
-      ]" />
+      <SnippetTabs :tabs="codeTabs" />
       <div style="height: 60px;" spacer />
       <div class="detail">
         <div class="title-text-top">
@@ -109,6 +106,19 @@ export default class Home extends Vue {
   visibleIndex = 0
   titleMessage = this.messages[this.visibleIndex]
   timer = null
+
+  codeTabs = [
+    {
+      image: 'https://docs.fuel.sh/logo.4b97a9a3.svg',
+      command: 'sh -c "curl https://raw.githubusercontent.com/rollupsync/launch-scripts/main/fuel.sh"',
+      link: 'https://github.com/rollupsync/launch-scripts/blob/main/fuel.sh',
+    },
+    {
+      image: 'https://docs.fuel.sh/logo.4b97a9a3.svg',
+      command: 'sh -c "curl https://raw.githubusercontent.com/rollupsync/launch-scripts/main/fuel.sh"',
+      link: 'https://github.com/rollupsync/launch-scripts/blob/main/fuel.sh',
+    }
+  ]
 
   mounted() {
     setTimeout(() => {

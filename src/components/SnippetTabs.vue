@@ -27,7 +27,7 @@
       </div>
       <div class="code-container">
         <div>
-          <span style="user-select: none">$ </span>sh -c "$(curl https://rollupsync.com/launch-fuel)"
+          <span style="user-select: none">$ </span>{{ tabs[activeIndex].command }}
         </div>
         <div class="copy-button">
           <div class="copy-button-text">
@@ -35,7 +35,7 @@
           </div>
         </div>
       </div>
-      <div class="view-code-button">
+      <div v-on:click="() => viewCode(tabs[activeIndex].link)" class="view-code-button">
         view code →
       </div>
     </div>
@@ -52,6 +52,10 @@ import Component from 'vue-class-component'
 })
 export default class SnippetTabs extends Vue {
   activeIndex = 0
+
+  viewCode(link) {
+    window.open(link, '_blank')
+  }
 }
 </script>
 <style scoped>
