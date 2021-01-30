@@ -7,6 +7,7 @@
 <script>
 import Vue from 'vue'
 import Component from 'vue-class-component'
+import '../static/inter-font.css'
 
 @Component({
   name: 'App',
@@ -20,9 +21,5 @@ body {
   font-family: 'Inter', helvetica, sans-serif;
   font-display: swap;
   background-color: black;
-}
-@font-face {
-  font-family: 'Inter';
-  src: url('../static/Inter-Regular.ttf');
 }
 </style>
