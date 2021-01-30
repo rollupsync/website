@@ -39,7 +39,7 @@
     </div>
     <div class="requests-info-container">
       <div class="requests-info-text">
-        <span style="color: #EF7A3C">500,000</span> requests in the last 24 hours.
+        <span style="color: #EF7A3C">{{ this.requestCount }}</span> requests in the last 24 hours.
       </div>
     </div>
     <div class="container">
@@ -79,6 +79,7 @@
 <script>
 import Vue from 'vue'
 import Component from 'vue-class-component'
+import axios from 'axios'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import SnippetTabs from './components/SnippetTabs'
@@ -108,6 +109,7 @@ export default class Home extends Vue {
   visibleIndex = 0
   titleMessage = this.messages[this.visibleIndex]
   timer = null
+  requestCount = 0
 
   codeTabs = [
     {
@@ -123,10 +125,12 @@ export default class Home extends Vue {
   ]
 
   mounted() {
+    this.updateRequestCount()
     setTimeout(() => {
       this.updateMessage()
       this.timer = setInterval(() => {
         this.updateMessage()
+        this.updateRequestCount()
       }, 6000)
     }, 4000)
     lottie.loadAnimation({
@@ -141,6 +145,11 @@ export default class Home extends Vue {
   updateMessage() {
     this.visibleIndex = (this.visibleIndex + 1) % this.messages.length
     this.titleMessage = this.messages[this.visibleIndex]
+  }
+
+  async updateRequestCount() {
+    const { data } = await axios.get('https://mainnet.rollupsync.com/request-count')
+    this.requestCount = data.count
   }
 
   beforeUnmount() {
