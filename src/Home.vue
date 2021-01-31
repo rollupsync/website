@@ -17,7 +17,7 @@
           </div>
         </div>
         <div style="flex: 1; max-width: 500px; min-width: 100px" />
-        <div ref="animation" class="animation" style="min-width: 300px; max-width: 330px" />
+        <div ref="animation" class="animation" style="min-width: 300px; max-width: 330px; min-height: 670px" />
         <!-- <img class="logo-image" :src="require('../static/ellipse.svg')" width="400px" height="auto" /> -->
       </div>
       <div class="info-title">
@@ -79,7 +79,6 @@
 <script>
 import Vue from 'vue'
 import Component from 'vue-class-component'
-import axios from 'axios'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import SnippetTabs from './components/SnippetTabs'
@@ -148,7 +147,8 @@ export default class Home extends Vue {
   }
 
   async updateRequestCount() {
-    const { data } = await axios.get('https://mainnet.rollupsync.com/request-count')
+    const res = await fetch('https://mainnet.rollupsync.com/request-count')
+    const data = await res.json()
     if (data.count < 1000) {
       this.requestCount = data.count
     } else if (data.count >= 1000 && data.count < 1000000) {

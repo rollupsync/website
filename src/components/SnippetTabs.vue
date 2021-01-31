@@ -111,7 +111,7 @@ export default class SnippetTabs extends Vue {
   background: #37393A;
   box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
-  font-family: 'PT Mono';
+  font-family: 'Menlo', 'PT Mono';
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
