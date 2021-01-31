@@ -1,7 +1,7 @@
 const { merge } = require('webpack-merge')
 const nodeExternals = require('webpack-node-externals')
 const commonConfig = require('./webpack.common.js')
-const VueSSRServerPlugin = require('vue-server-renderer/server-plugin')
+const VueSSRServerPlugin = require('vue-webworker-renderer/server-plugin')
 
 module.exports = merge(commonConfig, {
   entry: './src/entry-server.js',
