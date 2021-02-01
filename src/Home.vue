@@ -143,12 +143,12 @@ export default class Home extends Vue {
       command: 'sh -c "$(curl -s https://raw.githubusercontent.com/rollupsync/launch-scripts/main/fuel.sh)"',
       link: 'https://github.com/rollupsync/launch-scripts/blob/main/fuel.sh',
     },
-    {
-      image: ArbitrumLogo,
-      title: 'Run an Arbitrum node!',
-      command: 'sh -c "$(curl -s https://raw.githubusercontent.com/rollupsync/launch-scripts/main/arbitrum.sh)"',
-      link: 'https://github.com/rollupsync/launch-scripts/blob/main/arbitrum.sh',
-    }
+    // {
+    //   image: ArbitrumLogo,
+    //   title: 'Run an Arbitrum node!',
+    //   command: 'sh -c "$(curl -s https://raw.githubusercontent.com/rollupsync/launch-scripts/main/arbitrum.sh)"',
+    //   link: 'https://github.com/rollupsync/launch-scripts/blob/main/arbitrum.sh',
+    // }
   ]
 
   mounted() {
