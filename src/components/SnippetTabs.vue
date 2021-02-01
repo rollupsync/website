@@ -15,15 +15,15 @@
       >
         <img
           :src="tab.image"
-          width="44px"
-          height="auto"
+          width="auto"
+          height="50px"
           :class="activeIndex === index ? 'tab-image-active' : 'tab-image-inactive'"
         />
       </div>
     </div>
-    <div class="snippet-container">
+    <div v-if="activeIndex !== 0" class="snippet-container">
       <div class="snippet-title">
-        Run a rollup node!
+        {{ tabs[activeIndex].title }}
       </div>
       <div class="code-container">
         <div style="display: flex">
@@ -38,6 +38,31 @@
       </div>
       <div v-on:click="() => viewCode(tabs[activeIndex].link)" class="view-code-button">
         view code →
+      </div>
+    </div>
+    <div v-if="activeIndex === 0" class="snippet-container">
+      <div class="snippet-title">
+        Endpoint URLs
+      </div>
+      <div class="code-container" style="align-items: center">
+        <div style="display: flex">
+          <div>https://mainnet.rollupsync.com</div>
+        </div>
+        <div style="height: 8px" spacer />
+        <div style="display: flex">
+          <div>wss://mainnet.rollupsync.com/ws</div>
+        </div>
+        <div style="height: 8px" spacer />
+        <div style="display: flex">
+          <div>https://goerli.rollupsync.com</div>
+        </div>
+        <div style="height: 8px" spacer />
+        <div style="display: flex">
+          <div>wss://goerli.rollupsync.com/ws</div>
+        </div>
+      </div>
+      <div v-on:click="() => viewCode(tabs[activeIndex].link)" class="view-code-button">
+        view address whitelist →
       </div>
     </div>
   </div>

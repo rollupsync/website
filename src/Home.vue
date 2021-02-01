@@ -100,6 +100,7 @@ import RollupAnimation from '../static/rollup_1.json'
 import FuelLogo from '../static/fuel-logo.svg'
 import ArbitrumLogo from '../static/arbitrum-logo.png'
 import Logo from '../static/logo.svg'
+import LinkIcon from '../static/link-icon.svg'
 
 @Component({
   name: 'Home',
@@ -133,12 +134,18 @@ export default class Home extends Vue {
 
   codeTabs = [
     {
+      image: LinkIcon,
+      link: 'https://github.com/rollupsync/server/blob/main/src/config.js#L18',
+    },
+    {
       image: FuelLogo,
+      title: 'Run a Fuel node!',
       command: 'sh -c "$(curl -s https://raw.githubusercontent.com/rollupsync/launch-scripts/main/fuel.sh)"',
       link: 'https://github.com/rollupsync/launch-scripts/blob/main/fuel.sh',
     },
     {
       image: ArbitrumLogo,
+      title: 'Run an Arbitrum node!',
       command: 'sh -c "$(curl -s https://raw.githubusercontent.com/rollupsync/launch-scripts/main/arbitrum.sh)"',
       link: 'https://github.com/rollupsync/launch-scripts/blob/main/arbitrum.sh',
     }
