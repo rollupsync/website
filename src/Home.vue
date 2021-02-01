@@ -2,7 +2,7 @@
   <div>
     <Header />
     <div class="container">
-      <div style="display: flex; margin: 99px; overflow: hidden;">
+      <div style="display: flex; margin: 99px; margin-top: 200px; margin-bottom: 200px; overflow: visible;">
         <div style="min-width: 560px">
           <div class="title-text-top">
             Run a rollup
@@ -16,9 +16,9 @@
             RollupSync offers free and unlimited requests to the Ethereum network supporting the synchronization of rollup nodes.
           </div>
         </div>
-        <div style="flex: 1; max-width: 500px; min-width: 100px" />
-        <div ref="animation" class="animation" style="min-width: 300px; max-width: 330px; min-height: 670px" />
-        <!-- <img class="logo-image" :src="require('../static/ellipse.svg')" width="400px" height="auto" /> -->
+        <div style="flex: 1; max-width: 300px; min-width: 100px" />
+        <!-- <div ref="animation" class="animation" style="min-width: 300px; max-width: 330px" /> -->
+        <img class="logo-image" :src="require('../static/i1.svg')" width="500px" height="auto" />
       </div>
       <div class="info-title">
         Free and unlimited requests
@@ -27,50 +27,63 @@
         Use the snippets below to run your own rollup node. Docker and NodeJS are required to run most nodes.
       </div>
       <SnippetTabs :tabs="codeTabs" />
-      <div style="height: 60px;" spacer />
-      <div class="detail">
-        <div class="title-text-top">
-          How does it work?
+      <div class="horizontal-detail-container">
+        <div class="detail">
+          <div class="title-text-top">
+            How does it work?
+          </div>
+          <div class="title-description">
+            RollupSync whitelists contract addresses; requests about rollup addresses succeed. Requests about other addresses fail.
+          </div>
         </div>
-        <div class="title-description">
-          RollupSync whitelists contract addresses; requests about rollup addresses succeed. Requests about other addresses fail.
+        <div class="requests-info-container">
+          <div class="requests-info-text">
+            <div style="color: #FF4242">{{ this.requestCount }}</div>
+            <div>requests in the last 24 hours.</div>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="requests-info-container">
-      <div class="requests-info-text">
-        <span style="color: #EF7A3C">{{ this.requestCount }}</span> requests in the last 24 hours.
-      </div>
-    </div>
-    <div class="container">
-      <div class="detail" style="align-self: center">
+      <div style="max-width: 810px; margin-top: 184px; align-self: center">
         <div class="title-text-top" style="text-align: center">
           What is it?
         </div>
-        <div class="title-description" style="text-align: center">
+        <div class="title-description" style="max-width: 810px; text-align: center">
           RollupSync is a small server that sits between a rollup node and an Ethereum node operated by us.
         </div>
       </div>
-      <div class="detail">
-        <div class="title-text-top">
-          Free
+      <img
+        src="../static/i2.svg"
+        style="max-width: 1020px; align-self: center; margin-top: 100px; margin-bottom: 100px"
+      />
+      <div class="horizontal-detail-container">
+        <div class="detail">
+          <div class="title-text-top">
+            Free
+          </div>
+          <div class="title-description">
+            Unlimited reads to rollup addresses.
+            <div style="height: 24px" spacer />
+            Unlimited transactions anywhere.
+          </div>
         </div>
-        <div class="title-description">
-          Unlimited reads to rollup addresses.
-          <div style="height: 24px" spacer />
-          Unlimited transactions anywhere.
+        <img src="../static/i3.svg" />
+      </div>
+      <div class="horizontal-detail-container">
+        <div style="margin: 99px; min-width: 400px; text-align: center">
+          <img src="../static/i4.svg" />
+        </div>
+        <div class="detail">
+          <div class="title-text-top">
+            Fast
+          </div>
+          <div class="title-description">
+            Cached data improves sync speed.
+            <div style="height: 24px" spacer />
+            CDN moves data closer to you.
+          </div>
         </div>
       </div>
-      <div class="detail" style="align-self: flex-end">
-        <div class="title-text-top">
-          Fast
-        </div>
-        <div class="title-description">
-          Cached data improves sync speed.
-          <div style="height: 24px" spacer />
-          CDN moves data closer to you.
-        </div>
-      </div>
+      <div style="height: 200px" />
     </div>
     <Footer />
   </div>
@@ -82,10 +95,11 @@ import Component from 'vue-class-component'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import SnippetTabs from './components/SnippetTabs'
-import lottie from 'lottie-web'
+// import lottie from 'lottie-web'
 import RollupAnimation from '../static/rollup_1.json'
 import FuelLogo from '../static/fuel-logo.svg'
 import ArbitrumLogo from '../static/arbitrum-logo.png'
+import Logo from '../static/logo.svg'
 
 @Component({
   name: 'Home',
@@ -96,6 +110,13 @@ import ArbitrumLogo from '../static/arbitrum-logo.png'
   },
   metaInfo: {
     title: 'RollupSync',
+    link: [
+      {
+        rel: 'icon',
+        href: Logo,
+        type: 'image/svg+xml',
+      }
+    ]
   },
 })
 export default class Home extends Vue {
@@ -132,13 +153,13 @@ export default class Home extends Vue {
         this.updateRequestCount()
       }, 6000)
     }, 4000)
-    lottie.loadAnimation({
-      container: this.$refs.animation, // the dom element
-      renderer: 'svg',
-      loop: true,
-      autoplay: true,
-      animationData: RollupAnimation, // the animation data
-    })
+    // lottie.loadAnimation({
+    //   container: this.$refs.animation, // the dom element
+    //   renderer: 'svg',
+    //   loop: true,
+    //   autoplay: true,
+    //   animationData: RollupAnimation, // the animation data
+    // })
   }
 
   updateMessage() {
@@ -182,8 +203,9 @@ export default class Home extends Vue {
 }
 .logo-image {
   position: relative;
-  top: -50px;
+  top: -80px;
   overflow: visible;
+  min-height: 390px;
 }
 .slide-enter-active, .slide-leave-active {
   transition: all 1s;
@@ -206,7 +228,7 @@ export default class Home extends Vue {
   color: white;
 }
 .title-text-bottom {
-  color: #EF7A3C;
+  color: #FF4242;
   font-size: 64px;
   font-weight: 700;
 }
@@ -222,7 +244,7 @@ export default class Home extends Vue {
   font-weight: bold;
   font-size: 48px;
   line-height: 140%;
-  color: #EF7A3C;
+  color: #FF4242;
   align-self: center;
 }
 .info-description {
@@ -240,18 +262,27 @@ export default class Home extends Vue {
   max-width: 530px;
   margin: 99px;
 }
-.requests-info-container {
-  width: 100%;
-  background-color: #222222;
+.horizontal-detail-container {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  margin-top: 220px;
+}
+.requests-info-container {
+  background-color: #222222;
+  border-radius: 88px;
+  display: flex;
+  flex-direction: column;
+  max-width: 620px;
 }
 .requests-info-text {
-  margin: 40px;
+  margin-left: 46px;
+  margin-right: 46px;
+  margin-top: 79px;
+  margin-bottom: 79px;
   font-size: 64px;
   color: white;
   font-weight: bold;
-  text-align: center;
+  line-height: 130%;
 }
 </style>

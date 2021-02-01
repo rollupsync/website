@@ -6,7 +6,7 @@
         v-for="(tab, index) of tabs"
         :style="{
           ...(index === activeIndex ? {
-            borderBottom: '2px solid #EF7A3C',
+            borderBottom: '2px solid #FF4242',
           } : {}),
           ...(index > 0 ? { marginLeft: '4px' } : {}),
           ...(index < tabs.length-1 ? { marginRight: '4px' } : {}),
@@ -78,7 +78,6 @@ export default class SnippetTabs extends Vue {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  background-color: #222222;
 }
 .tab-image-inactive {
   filter: grayscale(100%);

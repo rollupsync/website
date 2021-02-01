@@ -1,5 +1,10 @@
 <template>
   <div class="header">
+    <img
+      src="../../static/logo.svg"
+      height="43px"
+      style="margin-left: 99px; margin-right: 10px"
+    />
     <div class="header-text">Rollup Sync</div>
   </div>
 </template>
@@ -26,6 +31,5 @@ export default class Header extends Vue {}
   font-size: 46px;
   font-weight: 700;
   margin: 8px;
-  margin-left: 99px;
 }
 </style>
