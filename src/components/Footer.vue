@@ -35,7 +35,7 @@ export default class Footer extends Vue {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  height: 160px;
+  height: 100px;
 }
 .github {
   margin: 25px;
