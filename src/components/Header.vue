@@ -5,7 +5,7 @@
       height="43px"
       style="margin-left: 99px; margin-right: 10px"
     />
-    <div class="header-text">Rollup Sync</div>
+    <div class="header-text">RollupSync</div>
   </div>
 </template>
 <script>

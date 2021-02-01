@@ -31,11 +31,10 @@
           <div style="width: 10px" spacer />
           <div>{{ tabs[activeIndex].command }}</div>
         </div>
-        <div class="copy-button">
-          <div class="copy-button-text">
-            Copy
-          </div>
-        </div>
+        <div style="height: 30px" spacer />
+        <Button>
+          Copy
+        </Button>
       </div>
       <div v-on:click="() => viewCode(tabs[activeIndex].link)" class="view-code-button">
         view code →
@@ -46,10 +45,11 @@
 <script>
 import Vue from 'vue'
 import Component from 'vue-class-component'
+import Button from './Button'
 
 @Component({
   name: 'SnippetTabs',
-  components: {},
+  components: { Button },
   props: ['tabs'],
 })
 export default class SnippetTabs extends Vue {

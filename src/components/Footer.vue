@@ -5,19 +5,26 @@
       src="../../static/github-white.png"
       v-on:click="githubLink"
     />
+    <Button :onClick="supportLink">
+      Contact Support
+    </Button>
   </div>
 </template>
 <script>
 import Vue from 'vue'
 import Component from 'vue-class-component'
+import Button from './Button'
 
 @Component({
   name: 'Footer',
-  components: {},
+  components: { Button },
 })
 export default class Footer extends Vue {
   githubLink() {
     window.open('https://github.com/rollupsync', '_blank')
+  }
+  supportLink() {
+    window.open('https://github.com/rollupsync/server/issues', '_blank')
   }
 }
 </script>
@@ -27,7 +34,8 @@ export default class Footer extends Vue {
   background: #222222;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
+  height: 160px;
 }
 .github {
   margin: 25px;

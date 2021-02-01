@@ -205,7 +205,7 @@ export default class Home extends Vue {
   position: relative;
   top: -80px;
   overflow: visible;
-  min-height: 390px;
+  min-height: 487px;
 }
 .slide-enter-active, .slide-leave-active {
   transition: all 1s;
