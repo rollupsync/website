@@ -32,7 +32,7 @@
           <div>{{ tabs[activeIndex].command }}</div>
         </div>
         <div style="height: 30px" spacer />
-        <Button>
+        <Button :onClick="copySnippet" loadingText="Copied!">
           Copy
         </Button>
       </div>
@@ -82,6 +82,11 @@ export default class SnippetTabs extends Vue {
 
   viewCode(link) {
     window.open(link, '_blank')
+  }
+
+  async copySnippet() {
+    await navigator.clipboard.writeText(this.tabs[this.activeIndex].command)
+    await new Promise(r => setTimeout(r, 1000))
   }
 }
 </script>

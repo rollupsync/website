@@ -28,7 +28,7 @@ const renderer = createSharedBundleRenderer(serverBundle, {
 async function render(req) {
   const url = new URL(req.url)
   const context = {
-    title: 'Rollup Sync',
+    title: 'RollupSync',
     url: url.pathname,
     cookie: req.headers['cookie'],
   }
