@@ -79,7 +79,7 @@
           <div class="title-description">
             Cached data improves sync speed.
             <div style="height: 24px" spacer />
-            CDN moves data closer to you.
+            CDN storage moves data closer to you.
           </div>
         </div>
       </div>

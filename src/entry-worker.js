@@ -12,6 +12,7 @@ const renderer = createSharedBundleRenderer(serverBundle, {
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A free service for synchronizing optimistic and zero-knowledge Ethereum rollups. Sychronization URLs and sample code to get started on any network.">
     ${context.head || ''}
     ${context.renderResourceHints(context)}
     ${context.renderStyles(context)}
